@@ -1,11 +1,49 @@
 * {
-    margin: 0;
-    padding: 0;
+    letter-spacing: 1px;
 }
 
-.auth-wrapper {
-    height: 100%;
-    display: flex;
-    justify-content: center;
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 1200px;
+    max-width: 100%;
+    min-height: 580px;
+    display: contents;
     align-items: center;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.sign-in-container {
+    right: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up-container {
+    right: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.overlay-container {
+    background: #011627;
+    top: 0;
+    right: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
 }

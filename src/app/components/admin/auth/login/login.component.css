@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+.flex-container,
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+form.login-form {
+    margin-top: 4em;
+    min-width: 100px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.full-width {
+    font-size: 1.2rem;
+    width: 80%;
+}
+
+#sumbit-button {
+    width: 70%;
+    background-color: #011627;
+    margin: 2rem auto;
+    border-radius: 25px;
+}
+
+.password {
+    text-align: center;
+    width: 100%;
+}
+
+#forgot-redirect {
+    font-size: 10pt;
+    color: #5D5D5D;
+    text-decoration: none;
+    text-align: right;
+}
