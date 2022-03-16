@@ -45,6 +45,7 @@ export class LoginComponent {
       this.loginForm.controls['username'].value,
       this.loginForm.controls['password'].value).subscribe(
         data => {
+          console.log(data);
           this.token.saveToken(data.token);
           this.isLoginFailed = false;
           this.isLoggedIn = true;

@@ -2,8 +2,13 @@
     box-sizing: border-box;
 }
 
-.flex-container,
-.card {
+.login-form-wrapper {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,6 +37,7 @@ form.login-form {
 .password {
     text-align: center;
     width: 100%;
+    cursor: pointer;
 }
 
 #forgot-redirect {

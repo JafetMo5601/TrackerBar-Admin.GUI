@@ -11,6 +11,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class RegisterComponent {
 
   signUpForm = new FormGroup({
+    id: new FormControl('', {
+      validators: Validators.required
+    }),
     name: new FormControl('', {
       validators: Validators.required
     }),
@@ -27,6 +30,9 @@ export class RegisterComponent {
       ]
     }),
     password: new FormControl('', {
+      validators: Validators.required
+    }),
+    birthdate: new FormControl('', {
       validators: Validators.required
     })
   });
@@ -49,12 +55,16 @@ export class RegisterComponent {
   }
 
   onSubmit() {
+    var date: Date = this.signUpForm.controls['birthdate'].value;
+    var formatedDate = date.toISOString();
     this.authService.register(
+      this.signUpForm.controls['id'].value,
       this.signUpForm.controls['name'].value,
       this.signUpForm.controls['last'].value,
       this.signUpForm.controls['username'].value,
       this.signUpForm.controls['email'].value,
-      this.signUpForm.controls['password'].value
+      this.signUpForm.controls['password'].value,
+      formatedDate
     ).subscribe(
       data => {
         console.log(data);

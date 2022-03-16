@@ -1,10 +1,21 @@
-<div class="container" id="container">
-    <div class="overlay-container">
+<div class="container-auth container-flex" id="container">
+    <div class="image-container">
     </div>
-    <div class="form-container sign-up-container" *ngIf="show_register">
-        <app-register></app-register>
-    </div>
-    <div class="form-container sign-in-container">
-        <app-login></app-login>
+    <div class="form-container">
+        <div class="form-header" [style.height]="show_register ? '30%': '40%'">
+            <h1>{{ title }}</h1>
+            <div class="form-header-options">
+                <h3 id="sign-up-link">Sign Up</h3>
+                <h3 id="sign-in-link">Sign In</h3>
+            </div>
+        </div>
+        <div class="container-flex">
+            <div class="sign-up-container" *ngIf="show_register">
+                <app-register></app-register>
+            </div>
+            <div class="sign-in-container" *ngIf="!show_register">
+                <app-login></app-login>
+            </div>
+        </div>
     </div>
 </div>

@@ -6,25 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+  title: string = 'Welcome'
   tryingLoggin: boolean = true;
   show_register: boolean = false;
   signUpButton: any;
   signInButton: any;
-  container: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.signUpButton = document.getElementById("signUp");
-    this.signInButton = document.getElementById("signIn");
-    this.container = document.getElementById("container");
+    this.signUpButton = document.getElementById("sign-up-link");
+    this.signInButton = document.getElementById("sign-in-link");
 
     this.signUpButton.addEventListener("click", () => {
-      this.container.classList.add("right-panel-active");
+      this.show_register = true;
+      this.title = 'Register'
     });
 
     this.signInButton.addEventListener("click", () => {
-      this.container.classList.remove("right-panel-active");
+      this.show_register = false;
+      this.title = 'Welcome'
     });
   }
 
