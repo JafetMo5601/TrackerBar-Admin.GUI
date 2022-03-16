@@ -1,0 +1,50 @@
+* {
+    background-color: rgba(255, 255, 255, 0.12);
+    margin: 0;
+    padding: 0;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 25%;
+    color: #011627;
+    font-size: 50pt;
+    font-weight: 400;
+}
+
+.menu-icon span {
+    color: #FF9F1C;
+}
+
+.options {
+    width: 75%;
+}
+
+.full-height {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.flex-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-content span a {
+    color: #011627;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.flex-content span:hover {
+    color: rgba(29, 44, 94, 0.6);
+}

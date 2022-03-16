@@ -13,6 +13,9 @@ import { authInterceptorProviders } from './shared/services/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { ContentComponent } from './components/home/content/content.component';
+import { SideBarComponent } from './components/home/side-bar/side-bar.component';
+import { TopMenuComponent } from './components/home/top-menu/top-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { RouterModule } from '@angular/router';
     NotFoundComponent,
     HomeComponent,
     AppComponent,
+    ContentComponent,
+    SideBarComponent,
+    TopMenuComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,0 +1,16 @@
+<mat-drawer mode="side" opened>
+    <div id="search" class="full-width">
+        <div class="header full-width">
+            <span class="full-width"><a [matMenuTriggerFor]="beforeMenu">Bar name</a></span>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button mat-menu-item>Settings</button>
+            </mat-menu>
+        </div>
+    </div>
+    <div id="bar-statistics" class="full-width flex-content full-height">
+        <h4 class="statistic-box total-tables">Total tables: {{ total_tables }}</h4>
+        <h4 class="statistic-box tables-available">Total tables available: {{ tables_available }}</h4>
+        <h4 class="statistic-box total-people">Total people in the bar: {{ total_people }}</h4>
+        <h4 class="statistic-box total-spaces">Total spaces available: {{ spaces_available }}</h4>
+    </div>
+</mat-drawer>

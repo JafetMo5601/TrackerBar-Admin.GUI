@@ -1,0 +1,26 @@
+    * {
+        width: 75%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    
+    .full-width {
+        width: 100%;
+    }
+    
+    .flex-content {
+        position: absolute;
+        left: 0;
+        width: 70%;
+        height: 100%;
+    }
+    
+    .flex-aside {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 30%;
+        align-items: center;
+    }

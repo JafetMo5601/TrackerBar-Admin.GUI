@@ -1,0 +1,18 @@
+<mat-toolbar class="full-height full-width">
+    <div class="full-height menu-icon">
+        Tracker
+        <span>Bar</span>
+    </div>
+    <div class="flex-content full-height options">
+        <span><a>Home</a></span>
+        <span><a>Manage Bar</a></span>
+        <span><a>Profile</a></span>
+        <div>
+            <span><a [matMenuTriggerFor]="beforeMenu">Settings</a></span>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button mat-menu-item [routerLink]="['/not-found']">Settings</button>
+                <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>
