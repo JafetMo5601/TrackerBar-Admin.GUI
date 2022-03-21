@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { ContentComponent } from './components/home/content/content.component';
 import { SideBarComponent } from './components/home/side-bar/side-bar.component';
 import { TopMenuComponent } from './components/home/top-menu/top-menu.component';
+import { ProfileComponent } from './components/home/content/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TopMenuComponent } from './components/home/top-menu/top-menu.component'
     ContentComponent,
     SideBarComponent,
     TopMenuComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserAnimationsModule,

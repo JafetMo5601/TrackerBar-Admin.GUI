@@ -11,16 +11,40 @@
     
     .flex-content {
         position: absolute;
-        left: 0;
-        width: 70%;
-        height: 100%;
+        right: -10;
+        width: 50%;
+        height: 80%;
+        border-top-left-radius: 100%;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
     
-    .flex-aside {
+    .inner-content {
         position: absolute;
-        top: 0;
         right: 0;
-        height: 100%;
-        width: 30%;
-        align-items: center;
+        bottom: 0;
+        height: 60%;
+        padding-left: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .inner-content h1 {
+        color: white;
+        position: relative;
+        width: 100%;
+        font-size: 50pt;
+        margin-bottom: 3rem;
+    }
+    
+    .inner-content button {
+        font-size: 20pt;
+        padding: 10px 0;
+        border-radius: 20pt;
+        margin-top: 1rem;
+        background-color: #FF9F1C;
+    }
+    
+    .blue {
+        background: #011627;
     }
