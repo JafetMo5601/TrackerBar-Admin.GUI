@@ -4,9 +4,9 @@
         <span>Bar</span>
     </div>
     <div class="flex-content full-height options">
-        <span><a>Home</a></span>
-        <span><a>Manage Bar</a></span>
-        <span><a>Profile</a></span>
+        <span><a [routerLink]="['/home']">Home</a></span>
+        <span><a [routerLink]="['/admin-restaurants']">Manage Bar</a></span>
+        <span><a [routerLink]="['/profile']">Profile</a></span>
         <div>
             <span><a [matMenuTriggerFor]="beforeMenu">Settings</a></span>
             <mat-menu #beforeMenu="matMenu" xPosition="before">

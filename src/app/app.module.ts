@@ -10,24 +10,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialsModule } from './shared/materials/materials.module';
 import { CommonModule } from '@angular/common';
 import { authInterceptorProviders } from './shared/services/auth.interceptor';
-import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterModule } from '@angular/router';
-import { ContentComponent } from './components/home/content/content.component';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { ManagementComponent } from './components/management/management.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { SideBarComponent } from './components/home/side-bar/side-bar.component';
-import { TopMenuComponent } from './components/home/top-menu/top-menu.component';
-import { ProfileComponent } from './components/home/content/profile/profile.component';
+import { ContentComponent } from './components/home/content/content.component';
 
 @NgModule({
   declarations: [
     CustomPopUpComponent,
     NotFoundComponent,
-    HomeComponent,
-    AppComponent,
     ContentComponent,
     SideBarComponent,
     TopMenuComponent,
     ProfileComponent,
+    ManagementComponent,
+    HomeComponent,
+    AppComponent
   ],
   imports: [
     BrowserAnimationsModule,

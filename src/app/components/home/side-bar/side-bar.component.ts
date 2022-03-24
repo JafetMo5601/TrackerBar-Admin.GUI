@@ -32,4 +32,5 @@ export class SideBarComponent implements OnInit {
       data => {this.spaces_available = data},
       err => {console.log(err)})
   }
+
 }
