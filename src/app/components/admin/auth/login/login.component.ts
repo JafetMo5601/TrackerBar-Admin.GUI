@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomPopUpService } from 'src/app/shared/custom-pop-up/custom-pop-up.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { PersonalInformationService } from 'src/app/shared/services/personal-information.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 @Component({
@@ -25,6 +26,7 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private token: TokenStorageService,
+    private user_info: PersonalInformationService,
     private customPopUpService: CustomPopUpService
   ) {}
 
@@ -45,8 +47,13 @@ export class LoginComponent {
       this.loginForm.controls['username'].value,
       this.loginForm.controls['password'].value).subscribe(
         data => {
-          console.log(data);
           this.token.saveToken(data.token);
+          this.user_info.savePersonalInfo(
+            data.userName, 
+            data.userEmail,
+            data.userFirst, 
+            data.userLast
+          )
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.reloadPage();
