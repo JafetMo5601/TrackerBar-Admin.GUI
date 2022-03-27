@@ -18,6 +18,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SideBarComponent } from './components/home/side-bar/side-bar.component';
 import { ContentComponent } from './components/home/content/content.component';
+import { AddBarComponent } from './components/management/add-bar/add-bar.component';
+import { BarListComponent } from './components/management/bar-list/bar-list.component';
+import { DetailsComponent } from './components/profile/details/details.component';
+import { EditComponent } from './components/profile/edit/edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,15 +34,21 @@ import { ContentComponent } from './components/home/content/content.component';
     ProfileComponent,
     ManagementComponent,
     HomeComponent,
-    AppComponent
+    AppComponent,
+    AddBarComponent,
+    BarListComponent,
+    DetailsComponent,
+    EditComponent
   ],
   imports: [
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     MaterialsModule,
     BrowserModule,
     CommonModule,
+    FormsModule,
     NgbModule,
   ],
   providers: [
