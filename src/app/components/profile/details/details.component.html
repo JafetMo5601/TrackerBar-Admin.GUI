@@ -1,0 +1,7 @@
+<div class="flex-content">
+    <img [src]="profile_image_path" width="284" height="284" />
+    <h1>{{ user_full_name }}</h1>
+    <span><a>Change profile photo</a></span>
+    <span><a [routerLink]="['/edit-profile']">Edit personal information</a></span>
+    <button mat-raised-button *ngIf="show_logout_button" (click)="logout()">Log off</button>
+</div>

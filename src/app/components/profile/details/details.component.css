@@ -1,0 +1,43 @@
+* {
+    text-decoration: none;
+}
+
+.flex-content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-transform: capitalize;
+    font-size: 30pt;
+    margin: 1rem auto;
+    margin-bottom: 2rem;
+}
+
+span {
+    cursor: pointer;
+    margin: 1rem auto;
+}
+
+span a {
+    color: #2EC4B6;
+    font-size: 15pt;
+}
+
+button {
+    width: 15rem;
+    margin: 2rem auto;
+    padding: 2rem auto;
+    font-size: 15pt;
+    font-weight: 300;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #E71D36;
+}
