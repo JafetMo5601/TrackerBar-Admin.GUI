@@ -12,8 +12,9 @@ import { EditComponent } from './components/profile/edit/edit.component';
 const routes: Routes = [
    { path: 'auth', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule), canActivate: [LooggedInGuard] },
    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+   { path: 'profile/:user_id', component: EditComponent, canActivate: [AuthGuard] },
    { path: 'admin-restaurants', component: ManagementComponent, canActivate: [AuthGuard] },
-   { path: 'edit-profile', component: EditComponent, canActivate: [AuthGuard] },
+   { path: 'restaurant/:restaurant_id', component: ManagementComponent, canActivate: [AuthGuard] },
    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
    { path: '', redirectTo: 'home', pathMatch: 'full' },
    { path: '**', component: NotFoundComponent }
