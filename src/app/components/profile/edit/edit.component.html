@@ -1,0 +1,54 @@
+<div>
+    <div class="side-bar">
+        <mat-drawer mode="side" opened>
+            <app-details [show_logout_button]="false"></app-details>
+        </mat-drawer>
+    </div>
+    <div class="right-content">
+        <form class="registration-form" [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+            <div class="flex-container">
+                <div class="column-1">
+                    <mat-form-field class="full-width" appearance="legacy">
+                        <mat-label>ID</mat-label>
+                        <input matInput type="text" formControlName="id">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="legacy">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" formControlName="email">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="legacy">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="legacy">
+                        <mat-label>Birth date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="column-2">
+                    <mat-form-field class="half-width" appearance="legacy">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text" formControlName="name">
+                    </mat-form-field>
+
+                    <mat-form-field class="half-width" appearance="legacy">
+                        <mat-label>Last</mat-label>
+                        <input matInput type="text" formControlName="last">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="legacy">
+                        <mat-label>Username</mat-label>
+                        <input matInput type="text" formControlName="username">
+                    </mat-form-field>
+
+                    <button id="sumbit-button" class="" mat-raised-button>Update information</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
