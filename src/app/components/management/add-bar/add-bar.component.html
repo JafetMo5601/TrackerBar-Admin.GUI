@@ -1,1 +1,41 @@
-<p>add-bar works!</p>
+<div class="flex-content">
+    <h1>Add new bar</h1>
+    <form class="registration-form" [formGroup]="addBar" (ngSubmit)="onSubmit()">
+        <div class="flex-container">
+            <mat-form-field class="full-width" appearance="legacy">
+                <mat-label>Bar Name</mat-label>
+                <input matInput type="text" formControlName="name">
+            </mat-form-field>
+
+            <div class="flex-container-row">
+                <mat-form-field class="half-width" appearance="legacy">
+                    <mat-label>Number of tables</mat-label>
+                    <input matInput type="number" formControlName="table_qty">
+                </mat-form-field>
+
+                <mat-form-field class="half-width" appearance="legacy">
+                    <mat-label>Number of employees</mat-label>
+                    <input matInput type="number" formControlName="employee_qty">
+                </mat-form-field>
+            </div>
+
+            <div class="flex-container-row">
+                <mat-form-field class="half-width" appearance="legacy">
+                    <mat-label>People Allowed</mat-label>
+                    <input matInput type="number" formControlName="people_qty">
+                </mat-form-field>
+                <mat-form-field class="half-width" appearance="legacy">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput type="text" formControlName="phone_number">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field class="full-width" appearance="legacy">
+                <mat-label>Address</mat-label>
+                <input matInput type="text" formControlName="address">
+            </mat-form-field>
+
+            <button id="sumbit-button" class="" mat-raised-button>Add new bar</button>
+        </div>
+    </form>
+</div>

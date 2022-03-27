@@ -1,1 +1,16 @@
-<p>bar-list works!</p>
+<div class="list-container content">
+    <h1>Your Bares</h1>
+    <div class="list-container marged-container">
+        <div class="list-items">
+            <div *ngFor="let bar of bares" class="items">
+                <div class="restaurant-item">
+                    <h2>{{ bar.name }}</h2>
+                    <span>Address: {{ bar.address }}</span>
+                </div>
+                <button id="sumbit-button" class="edit-button" mat-raised-button>
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

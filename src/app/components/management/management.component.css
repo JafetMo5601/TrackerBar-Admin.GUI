@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.flex-content {
+    display: flex;
+    flex-direction: row;
+}
+
+mat-drawer {
+    width: 40%;
+}
+
+app-bar-list {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+}

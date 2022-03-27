@@ -6,6 +6,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bar-list.component.css']
 })
 export class BarListComponent implements OnInit {
+  bares = [
+    {
+      name: 'OPEN MIND',
+      address: 'Sample text for restaurant direction'
+    },
+    {
+      name: 'OPEN MIND',
+      address: 'Sample text for restaurant direction'
+    },
+    {
+      name: 'OPEN MIND',
+      address: 'Sample text for restaurant direction'
+    },
+    {
+      name: 'OPEN MIND',
+      address: 'Sample text for restaurant direction'
+    },
+    {
+      name: 'OPEN MIND',
+      address: 'Sample text for restaurant direction'
+    },
+    {
+      name: 'OPEN MIND',
+      address: 'Sample text for restaurant direction'
+    },
+  ]
 
   constructor() { }
 
