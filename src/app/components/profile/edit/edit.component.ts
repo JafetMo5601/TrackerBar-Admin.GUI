@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { CustomPopUpService } from 'src/app/shared/custom-pop-up/custom-pop-up.service';
+import { UserProfile } from 'src/app/shared/interfaces/user-profile';
 import { PersonalInformationService } from 'src/app/shared/services/personal-information.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
@@ -12,6 +15,8 @@ export class EditComponent implements OnInit {
   profile_image_path = ''
   user_full_name = ''
   show_logout_button = false
+  user_id = ''
+  user_profile: UserProfile | null = null
 
   updateForm = new FormGroup({
     id: new FormControl('', {
@@ -43,11 +48,40 @@ export class EditComponent implements OnInit {
   constructor(
     private user_info: PersonalInformationService,
     private token: TokenStorageService,
+    private customPopUpService: CustomPopUpService,
+    private _ActivatedRoute: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
     this.profile_image_path = "/assets/icons/profile-icon.png";
     this.user_full_name = this.user_info.getFullName();
+
+    this._ActivatedRoute.paramMap.subscribe(
+      params => {
+        this.user_id = params.get('user_id')!;
+      });
+
+    this.user_profile = this.user_info.getUSerInfo(this.user_id);
+
+    if (this.user_profile != null) {
+      this.updateForm.controls['id'].setValue(this.user_profile.id);
+      this.updateForm.controls['name'].setValue(this.user_profile.name);
+      this.updateForm.controls['last'].setValue(this.user_profile.last);
+      this.updateForm.controls['email'].setValue(this.user_profile.email);
+      this.updateForm.controls['username'].setValue(this.user_profile.username);
+      this.updateForm.controls['password'].setValue(this.user_profile.password);
+      this.updateForm.controls['birthdate'].setValue(this.user_profile.birthday);
+    } else {
+      this.openCustomPopUp('There was an error retrieving the user information, please login again.');
+    }
+  }
+
+  public openCustomPopUp(message: string) {
+    this.customPopUpService.confirm(
+      'User Profile', 
+      message,
+      ''
+      );
   }
 
   onSubmit() {
