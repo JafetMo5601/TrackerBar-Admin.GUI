@@ -1,8 +1,8 @@
 <mat-drawer-container class="container-fluid">
-    <div class="flex-top">
+    <div class="flex-top" *ngIf="isLoggedIn" [ngStyle]="{'height': isLoggedIn ? '25%' : '0%'}">
         <app-top-menu></app-top-menu>
     </div>
-    <div class="flex-content">
+    <div class="flex-content" [ngStyle]="{'height': isLoggedIn ? '75%' : '100%'}">
         <router-outlet></router-outlet>
     </div>
 </mat-drawer-container>

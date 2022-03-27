@@ -7,8 +7,6 @@ import { TokenStorageService } from './shared/services/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TrackerBar-Admin';
-
   isLoggedIn = false;
 
   constructor(private token: TokenStorageService) { }
