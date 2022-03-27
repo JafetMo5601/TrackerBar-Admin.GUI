@@ -23,6 +23,8 @@ import { BarListComponent } from './components/management/bar-list/bar-list.comp
 import { DetailsComponent } from './components/profile/details/details.component';
 import { EditComponent } from './components/profile/edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateBarComponent } from './components/management/update-bar/update-bar.component';
+import { BarReservationsComponent } from './components/management/bar-reservations/bar-reservations.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddBarComponent,
     BarListComponent,
     DetailsComponent,
-    EditComponent
+    EditComponent,
+    UpdateBarComponent,
+    BarReservationsComponent
   ],
   imports: [
     BrowserAnimationsModule,
