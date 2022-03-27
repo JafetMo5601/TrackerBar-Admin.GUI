@@ -19,7 +19,11 @@ export class TopMenuComponent implements OnInit {
 
   logout() {
     this.token.signOut();
-    this.router.navigate(['auth/login']);
+    window.location.reload()
+  }
+
+  redirect_to_home() {
+    this.router.navigate(['/home'])
   }
 
 }
