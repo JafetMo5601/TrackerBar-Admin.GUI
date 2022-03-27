@@ -49,6 +49,7 @@ export class LoginComponent {
         data => {
           this.token.saveToken(data.token);
           this.user_info.savePersonalInfo(
+            data.id,
             data.userName, 
             data.userEmail,
             data.userFirst, 
