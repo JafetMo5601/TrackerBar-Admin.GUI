@@ -24,7 +24,8 @@ import { DetailsComponent } from './components/profile/details/details.component
 import { EditComponent } from './components/profile/edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateBarComponent } from './components/management/update-bar/update-bar.component';
-import { BarReservationsComponent } from './components/management/bar-reservations/bar-reservations.component';
+import { BarReservationsComponent } from './components/management/update-bar/bar-reservations/bar-reservations.component';
+import { EditBarComponent } from './components/management/update-bar/edit-bar/edit-bar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BarReservationsComponent } from './components/management/bar-reservatio
     DetailsComponent,
     EditComponent,
     UpdateBarComponent,
-    BarReservationsComponent
+    BarReservationsComponent,
+    EditBarComponent
   ],
   imports: [
     BrowserAnimationsModule,
