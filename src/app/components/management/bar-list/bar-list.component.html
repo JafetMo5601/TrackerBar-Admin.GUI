@@ -8,7 +8,7 @@
                     <span>Address: {{ bar.address }}</span>
                 </div>
                 <button id="sumbit-button" class="edit-button" mat-raised-button>
-                    <mat-icon>edit</mat-icon>
+                    <mat-icon [routerLink]="['/restaurant', bar.id]">edit</mat-icon>
                 </button>
             </div>
         </div>

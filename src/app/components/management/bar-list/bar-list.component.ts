@@ -8,26 +8,32 @@ import { Component, OnInit } from '@angular/core';
 export class BarListComponent implements OnInit {
   bares = [
     {
+      id: '1',
       name: 'OPEN MIND',
       address: 'Sample text for restaurant direction'
     },
     {
+      id: '2',
       name: 'OPEN MIND',
       address: 'Sample text for restaurant direction'
     },
     {
+      id: '3',
       name: 'OPEN MIND',
       address: 'Sample text for restaurant direction'
     },
     {
+      id: '4',
       name: 'OPEN MIND',
       address: 'Sample text for restaurant direction'
     },
     {
+      id: '5',
       name: 'OPEN MIND',
       address: 'Sample text for restaurant direction'
     },
     {
+      id: '6',
       name: 'OPEN MIND',
       address: 'Sample text for restaurant direction'
     },
