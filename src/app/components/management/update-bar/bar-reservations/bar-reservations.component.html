@@ -1,0 +1,17 @@
+<div class="list-container content">
+    <h1>Reservations</h1>
+    <div class="list-container marged-container">
+        <div class="list-items">
+            <div *ngFor="let reservation of reservations" class="items">
+                <div class="restaurant-item">
+                    <h2>{{ reservation.owner }}</h2>
+                    <span>{{ reservation.details }}</span> <br>
+                    <span>{{ reservation.date }}</span>
+                </div>
+                <button id="sumbit-button" class="edit-button" mat-button>
+                        <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
