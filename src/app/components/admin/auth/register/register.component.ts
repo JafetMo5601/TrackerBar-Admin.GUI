@@ -72,8 +72,14 @@ export class RegisterComponent {
         this.isSignUpFailed = false;
         this.openCustomPopUp(data.message);
       }, err => {
-        console.log(err);
         this.errorMessage = err.error.message;
+
+        if (this.errorMessage.includes('Please check user details and try again.')) {
+          this.openCustomPopUp('Your password should contain at least 1 number, 1 letter, 1 capital letter and 1 special character.');
+          this.isSignUpFailed = true;
+        } else {  
+          this.openCustomPopUp(this.errorMessage);
+        }
         this.isSignUpFailed = true;
       }
     );

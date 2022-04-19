@@ -60,8 +60,14 @@ export class LoginComponent {
           this.reloadPage();
         },
         err => {
-          this.errorMessage = err.error.message;
-          this.openCustomPopUp(this.errorMessage);
+          if (err.status == 401) {
+            this.openCustomPopUp('Username or password incorrects, try again!');
+          } else if (err.status == 500) {
+            this.openCustomPopUp('There was a problem with the server try again later!');
+          } else {
+            this.errorMessage = err.error.message;
+            this.openCustomPopUp(this.errorMessage);
+          }
           this.isLoginFailed = true;
         }
       );
