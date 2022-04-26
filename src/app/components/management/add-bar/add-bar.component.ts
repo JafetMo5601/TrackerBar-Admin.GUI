@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomPopUpService } from 'src/app/shared/custom-pop-up/custom-pop-up.service';
+import { AdminBaresService } from 'src/app/shared/services/admin-bares.service';
+import { PersonalInformationService } from 'src/app/shared/services/personal-information.service';
+
 
 @Component({
   selector: 'app-add-bar',
@@ -27,11 +31,47 @@ export class AddBarComponent implements OnInit {
     })
   });
 
-  constructor() { }
+  constructor(
+    private adminBaresService: AdminBaresService,
+    private userInfoService: PersonalInformationService,
+    private customPopUpService: CustomPopUpService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {}
+  openCustomPopUp(message: string) {
+    this.customPopUpService.confirm(
+      'Bares administration', 
+      message,
+      'home'
+      );
+  }
+
+  onSubmit() {
+    var userId = this.userInfoService.getId();
+
+    if (userId != null) {
+      this.adminBaresService.addBar(
+        this.addBar.controls['name'].value,
+        this.addBar.controls['people_qty'].value,
+        this.addBar.controls['table_qty'].value,
+        this.addBar.controls['employee_qty'].value,
+        this.addBar.controls['phone_number'].value,
+        this.addBar.controls['address'].value,
+        userId
+      ).subscribe(
+        data => {
+          console.log(data);
+          this.openCustomPopUp("Check the information provided and try again!");
+        },
+        err => {
+          console.log(err)
+          this.openCustomPopUp("Restaurant created successfully!");
+        });
+    } else {
+       console.log("Error adding the bard");
+    }
+  }
 
 }
