@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminBaresService } from 'src/app/shared/services/admin-bares.service';
+import { PersonalInformationService } from 'src/app/shared/services/personal-information.service';
 
 @Component({
   selector: 'app-bar-list',
@@ -11,37 +13,27 @@ export class BarListComponent implements OnInit {
       id: '1',
       name: 'OPEN MIND',
       address: 'Sample text for restaurant direction'
-    },
-    {
-      id: '2',
-      name: 'OPEN MIND',
-      address: 'Sample text for restaurant direction'
-    },
-    {
-      id: '3',
-      name: 'OPEN MIND',
-      address: 'Sample text for restaurant direction'
-    },
-    {
-      id: '4',
-      name: 'OPEN MIND',
-      address: 'Sample text for restaurant direction'
-    },
-    {
-      id: '5',
-      name: 'OPEN MIND',
-      address: 'Sample text for restaurant direction'
-    },
-    {
-      id: '6',
-      name: 'OPEN MIND',
-      address: 'Sample text for restaurant direction'
-    },
+    }
   ]
 
-  constructor() { }
+  constructor(
+    private barManagementService: AdminBaresService,
+    private user_info: PersonalInformationService,
+  ) { }
 
   ngOnInit(): void {
+    var userId = this.user_info.getId();
+
+    if (userId != null) {
+      this.barManagementService.getYourBares(userId).subscribe(
+       data => {
+         this.bares = data;
+       },
+       err => {
+        console.log(err);
+       } 
+      );
+    }
   }
 
 }

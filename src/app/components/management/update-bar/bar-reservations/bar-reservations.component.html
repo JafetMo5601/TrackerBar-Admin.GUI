@@ -6,7 +6,7 @@
                 <div class="restaurant-item">
                     <h2>{{ reservation.owner }}</h2>
                     <span>{{ reservation.details }}</span> <br>
-                    <span>{{ reservation.date }}</span>
+                    <span>{{ reservation.date | date:'dd/MM/yyyy' }} at {{ reservation.date | date:'h:mm a'}}</span>
                 </div>
                 <button id="sumbit-button" class="edit-button" mat-button>
                         <mat-icon>delete</mat-icon>
