@@ -16,12 +16,9 @@ export class EditComponent implements OnInit {
   user_full_name = ''
   show_logout_button = false
   user_id = ''
-  user_profile: UserProfile | null = null
 
   updateForm = new FormGroup({
-    id: new FormControl('', {
-      validators: Validators.required
-    }),
+    id: new FormControl({ value: '', disabled: true}),
     name: new FormControl('', {
       validators: Validators.required
     }),
@@ -47,7 +44,6 @@ export class EditComponent implements OnInit {
 
   constructor(
     private user_info: PersonalInformationService,
-    private token: TokenStorageService,
     private customPopUpService: CustomPopUpService,
     private _ActivatedRoute: ActivatedRoute,
   ) {}
@@ -61,51 +57,60 @@ export class EditComponent implements OnInit {
         this.user_id = params.get('user_id')!;
       });
 
-    this.user_profile = this.user_info.getUSerInfo(this.user_id);
-
-    if (this.user_profile != null) {
-      this.updateForm.controls['id'].setValue(this.user_profile.id);
-      this.updateForm.controls['name'].setValue(this.user_profile.name);
-      this.updateForm.controls['last'].setValue(this.user_profile.last);
-      this.updateForm.controls['email'].setValue(this.user_profile.email);
-      this.updateForm.controls['username'].setValue(this.user_profile.username);
-      this.updateForm.controls['password'].setValue(this.user_profile.password);
-      this.updateForm.controls['birthdate'].setValue(this.user_profile.birthday);
-    } else {
-      this.openCustomPopUp('There was an error retrieving the user information, please login again.');
-    }
+    this.user_info.getUSerInfo(this.user_id).subscribe(
+      data => {
+        if (data != null) {
+          this.updateForm.controls['id'].setValue(data.id);
+          this.updateForm.controls['name'].setValue(data.name);
+          this.updateForm.controls['last'].setValue(data.last);
+          this.updateForm.controls['email'].setValue(data.email);
+          this.updateForm.controls['username'].setValue(data.userName);
+          this.updateForm.controls['password'].setValue(data.password);
+          this.updateForm.controls['birthdate'].setValue(data.birthDate);
+        }
+      },
+      err => {
+        console.log(err)
+        this.openCustomPopUp('There was an error retrieving the user information, please login again.', '');
+      }
+    );
   }
 
-  public openCustomPopUp(message: string) {
+  public openCustomPopUp(message: string, route: string) {
     this.customPopUpService.confirm(
       'User Profile', 
       message,
-      ''
+      route,
       );
   }
 
   onSubmit() {
-  //   var date: Date = this.signUpForm.controls['birthdate'].value;
-  //   var formatedDate = date.toISOString();
-  //   this.authService.register(
-  //     this.signUpForm.controls['id'].value,
-  //     this.signUpForm.controls['name'].value,
-  //     this.signUpForm.controls['last'].value,
-  //     this.signUpForm.controls['username'].value,
-  //     this.signUpForm.controls['email'].value,
-  //     this.signUpForm.controls['password'].value,
-  //     formatedDate
-  //   ).subscribe(
-  //     data => {
-  //       console.log(data);
-  //       this.isSuccessful = true;
-  //       this.isSignUpFailed = false;
-  //       this.openCustomPopUp(data.message);
-  //     }, err => {
-  //       console.log(err);
-  //       this.errorMessage = err.error.message;
-  //       this.isSignUpFailed = true;
-  //     }
-  //   );
+    var date: Date = new Date(this.updateForm.controls['birthdate'].value);
+    var formatedDate: string = date.toISOString();
+    this.user_info.updateProfile(
+      this.updateForm.controls['id'].value,
+      this.updateForm.controls['name'].value,
+      this.updateForm.controls['last'].value,
+      this.updateForm.controls['username'].value,
+      this.updateForm.controls['email'].value,
+      this.updateForm.controls['password'].value,
+      formatedDate
+    ).subscribe(
+      data => {
+        console.log(data);
+        this.openCustomPopUp("There was a problem updating the user, try later.", 'profile');
+      }, err => {
+        console.log(err);
+        this.openCustomPopUp("User updated successfully!", 'profile');
+
+        this.user_info.savePersonalInfo(
+          this.updateForm.controls['id'].value,
+          this.updateForm.controls['username'].value,
+          this.updateForm.controls['email'].value,
+          this.updateForm.controls['name'].value,
+          this.updateForm.controls['last'].value,
+        )
+      }
+    );
   }
 }
