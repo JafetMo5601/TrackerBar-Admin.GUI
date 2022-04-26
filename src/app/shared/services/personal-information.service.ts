@@ -1,6 +1,12 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UserProfile } from '../interfaces/user-profile';
 
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 const USER_ID = 'user-id'
 const USER_NAME = 'username'
@@ -14,12 +20,25 @@ const USER_EMAIL = 'user-email'
 })
 export class PersonalInformationService {
 
-  info: Array<UserProfile> = [
-    {id: '111111111', name: 'Jafet', last: 'Mora Ugalde', email: 'jafet@gmail.com', username: 'jafet.mora', password: 'Test1', birthday: '2008-04-10T06:30:00'}
-  ]
+  constructor(private httpClient: HttpClient) {}
 
-  public getUSerInfo(user_id: string): UserProfile | null {
-    return this.info.find(user => user.id == user_id) ?? null;
+  public getUSerInfo(user_id: string): Observable<UserProfile> {
+    return this.httpClient.get<UserProfile>(`/api/Auth/user?userId=${user_id}`, httpOptions);
+  }
+
+  public updateProfile(
+    id: string,
+    name: string,
+    last: string,
+    email: string,
+    username: string,
+    password: string,
+    birthDate: string
+  ): Observable<any> {
+    return this.httpClient.put<any>(
+      '/api/Auth/profile/update', 
+      {id, name, last, email, username, password, birthDate},
+      httpOptions);
   }
 
   public getFullName(): string {
