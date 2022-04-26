@@ -1,6 +1,6 @@
 <div class="flex-content">
     <h1>Update or delete bar</h1>
-    <form class="registration-form" [formGroup]="editBar" (ngSubmit)="onSubmit()">
+    <form class="registration-form" [formGroup]="editBar" (ngSubmit)="updateRestaurant()">
         <div class="flex-container">
             <mat-form-field class="full-width" appearance="legacy">
                 <mat-label>Bar Name</mat-label>
@@ -37,7 +37,7 @@
 
             <div class="flex-container-row-buttons">
                 <button id="sumbit-button" class="button-update" mat-raised-button>Update</button>
-                <button id="sumbit-button" class="button-delete" mat-raised-button>Delete</button>
+                <button id="delete-button" class="button-delete" (click)="deleteRestaurant()" mat-raised-button>Delete</button>
             </div>
         </div>
     </form>
